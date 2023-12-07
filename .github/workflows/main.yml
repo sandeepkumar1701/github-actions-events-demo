@@ -1,7 +1,6 @@
 name: GitHub Actions Events Demo
 run-name: GitHub Actions Events
 on:
-  push:
   pull_request:
     types: [opened, reopened, closed]
 jobs:
@@ -17,11 +16,11 @@ jobs:
         echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
         echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
         echo "GITHUB_EVENT_ACTION: ${{ github.event.action }}"
-  # Print-PR-Info:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Read pr related environment variables
-  #     if : ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
-  #     run: |
-  #       echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
-  #       echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
+  Print-PR-Info:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Read pr related environment variables
+      if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+      run: |
+        echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
+        echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
