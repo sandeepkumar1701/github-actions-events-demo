@@ -1,4 +1,4 @@
-name: Cancelling a workflow
+name: Cancelling a workflow 2
 run-name: Cancelling a workflow
 on: [push]
 jobs:
