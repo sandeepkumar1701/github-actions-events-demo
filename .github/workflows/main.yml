@@ -15,8 +15,9 @@ jobs:
   job-02:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
+      - name: print job id
+        run: |
+          echo ${{ github.job }}
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
