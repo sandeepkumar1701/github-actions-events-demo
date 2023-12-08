@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: List files in the repository
+      - name: List files in current repository
         run: |
           ls ${{ github.workspace }}
