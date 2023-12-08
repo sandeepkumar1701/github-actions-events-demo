@@ -10,8 +10,7 @@ jobs:
         run: |
           echo ${{ github.job }}
           sleep 30		
-      - if: github.event_name == 'pull_request'
-        name: List files in the repository
+      - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
   job-02:
