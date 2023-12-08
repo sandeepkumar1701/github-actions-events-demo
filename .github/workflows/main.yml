@@ -1,23 +1,25 @@
-name: Cancelling a workflow 2
-run-name: Cancelling a workflow
-on: [push]
+name: GitHub Actions Events Demo
+run-name: GitHub Actions Events
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+  pull_request:
+    types: [opened, closed]
 jobs:
-  job-01:
-    if: always()
+  Get-Environment-Variables:
     runs-on: ubuntu-latest
     steps:
-      - name: print job id
-        run: |
-          echo ${{ github.job }}
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-  job-02:
-    runs-on: ubuntu-latest
-    steps:
-      - name: print job id
-        run: |
-          echo ${{ github.job }}
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+    - name: Read environment variables
+      run: |
+        echo "GITHUB_EVENT_NAME: ${{ github.event_name }}"
+        echo "GITHUB_SHA: ${{ github.sha }}"
+        echo "GITHUB_REF: ${{ github.ref }}"
+        echo "GITHUB_REF_NAME: ${{ github.ref_name }}"
+    - name: Display base_ref and head_ref
+      if: ${{ github.event_name == 'pull_request' && github.event.action == 'opened' }}
+      run: |
+        echo "This event is a pull request"
+        echo "GITHUB_BASE_REF: ${{ github.base_ref }}"
+        echo "GITHUB_HEAD_REF: ${{ github.head_ref }}"
