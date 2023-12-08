@@ -1,5 +1,5 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions
+run-name: "Run number: ${{ github.run_number }} triggered by ${{ github.event_name }} event"
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -10,3 +10,4 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+	 
