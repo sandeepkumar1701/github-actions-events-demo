@@ -9,7 +9,6 @@ jobs:
       - name: print job id
         run: |
           echo ${{ github.job }}
-          sleep 30		
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
