@@ -1,12 +1,23 @@
-name: GitHub Actions Demo
-run-name: "Run number: ${{ github.run_number }} triggered by ${{ github.event_name }} event"
+name: Cancelling a workflow
+run-name: Cancelling a workflow
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  job-01:
+    if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
+      - name: print job id
+        run: |
+          echo ${{ github.job }}
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+  job-02:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print job id
+        run: |
+          echo ${{ github.job }}
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
