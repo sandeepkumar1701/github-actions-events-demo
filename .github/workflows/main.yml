@@ -11,7 +11,7 @@ jobs:
           echo ${{ github.job }}
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}
+          ls /app/demo
   job-02:
     runs-on: ubuntu-latest
     steps:
