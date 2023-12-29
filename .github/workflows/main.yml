@@ -1,24 +1,16 @@
-name: Cancelling a workflow
-run-name: Cancelling a workflow
+name: GitHub Actions Multi Jobs Demo
+run-name: GitHub Actions Multi Jobs Demo
 on: [push]
 jobs:
   job-01:
-    if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: print job id
-        run: |
-          echo ${{ github.job }}
-      - name: List files in the repository
-        run: |
-          ls /app/demo
+    - name: Checkout SCM
+      uses: actions/checkout@v3
+    - name: list workspace contents
+      run: ls -al ${{ github.workspace }}  
   job-02:
-    if: always()
     runs-on: ubuntu-latest
     steps:
-      - name: print job id
-        run: |
-          echo ${{ github.job }}
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
+    - name: list workspace contents
+      run: ls -al ${{ github.workspace }} 
