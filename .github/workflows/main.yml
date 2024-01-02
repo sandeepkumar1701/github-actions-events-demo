@@ -12,4 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Read temp file
-      run: cat ${{ github.workspace }}/hello.txt
+      run: cat ${{ github.workspace }}/hello.txt  	  
+  job-03:
+    needs: job-01
+    runs-on: ubuntu-latest
+    steps:
+    - name: Modify temp file
+      run: echo Bye >> ${{ github.workspace }}/hello.txt 
