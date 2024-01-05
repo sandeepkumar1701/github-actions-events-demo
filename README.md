@@ -1,1 +1,1 @@
-# github-actions-events-demo 2
+# github-actions-events-demo
