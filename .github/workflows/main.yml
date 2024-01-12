@@ -5,11 +5,13 @@ jobs:
   job-01:
     runs-on: ubuntu-latest
     steps:
-      - name: Create a temp file
-        run: echo Hello > ${{ github.workspace }}/hello.txt
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List contents in the workspace
+        run: ls -al ${{ github.workspace }}     
   job-02:
     needs: job-01
     runs-on: ubuntu-latest
     steps:
-      - name: Read temp file
-        run: cat ${{ github.workspace }}/hello.txt
+      - name: List contents in the workspace
+        run: ls -al ${{ github.workspace }}     
