@@ -1,0 +1,15 @@
+name: GitHub Actions Multiple jobs demo
+run-name: GitHub Actions Multiple jobs demo
+on: [push]
+jobs:
+  job-01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a temp file
+        run: echo Hello > ${{ github.workspace }}/hello.txt
+  job-02:
+    needs: job-01
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read temp file
+        run: cat ${{ github.workspace }}/hello.txt
