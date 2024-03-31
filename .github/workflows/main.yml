@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create a temp file
-        run: echo hello > ${{ github.workspace }}/ hello.txt
+        run: echo hello > ${{ github.workspace }}/hello.txt
   job-02: 
      needs: job-01
      runs-on: ubuntu-latest
